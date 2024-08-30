@@ -24,3 +24,6 @@ if __name__ == '__main__':
     
     learn = vision_learner(dls, resnet18, metrics=error_rate)
     learn.fine_tune(4)
+    
+    # Save the trained model
+    learn.export('model.pkl')
