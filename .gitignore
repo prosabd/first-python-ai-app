@@ -1,0 +1,13 @@
+.vscode
+
+## Environment folders
+venv
+/venv/
+*/venv/
+.venv
+
+## Cache folders
+cache
+__pycache__
+/__pycache__/
+*/__pycache__/
