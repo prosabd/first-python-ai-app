@@ -15,3 +15,12 @@ __pycache__
 ## test folder
 test
 /test/
+
+## Flagged's folders
+flagged
+/flagged/
+*/flagged/
+
+## Models files
+*.pkl
+**/*.pkl/
