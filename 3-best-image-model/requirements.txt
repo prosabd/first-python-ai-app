@@ -3,3 +3,4 @@ timm
 pandas
 certifi
 plotly
+statsmodels
