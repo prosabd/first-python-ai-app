@@ -2,3 +2,4 @@ fastai
 timm
 pandas
 certifi
+plotly

@@ -32,4 +32,3 @@ def get_data(part, col):
 
 # Get data for inference
 df = get_data('infer', 'infer_samples_per_sec')
-print(df)
