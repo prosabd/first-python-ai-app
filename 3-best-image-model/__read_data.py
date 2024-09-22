@@ -10,13 +10,13 @@ df_results['model'] = df_results['model'].str.split('_').str[0]
 
 def get_data(part, col):
     # Load and merge benchmark data with ImageNet results
-    df = pd.read_csv(f'benchmark-{part}-amp-nhwc-pt112-cu113-rtx3090.csv').merge(df_results, on='model')
+    df = pd.read_csv(f'pytorch-image-models/results/benchmark-{part}-amp-nhwc-pt240-cu124-rtx3090.csv').merge(df_results, on='model')
     
     # Calculate time (in seconds)
     df['secs'] = 1. / df[col]
     
     # Extract model 'family' from the name
-    df['family'] = df.model.str.extract('^([a-z]+?(?:v2)?)(?:\d|_|$)')
+    df['family'] = df.model.str.extract(r'^([a-z]+?(?:v2)?)(?:\d|_|$)')
     
     # Remove models ending with 'gn'
     df = df[~df.model.str.endswith('gn')]
@@ -31,4 +31,5 @@ def get_data(part, col):
     return df[df.family.str.contains('^re[sg]netd?|beit|convnext|levit|efficient|vit|vgg|swin')]
 
 # Get data for inference
-df = get_data('infer', 'infer_samples_per_second')
+df = get_data('infer', 'infer_samples_per_sec')
+print(df)
